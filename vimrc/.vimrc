@@ -12,7 +12,7 @@ set cindent " C언어 자동 들여쓰기
 set bs=eol,start,indent
 set history=256
 set laststatus=2 " 상태바 표시 항상
-"set paste " 붙여넣기 계단현상 없애기
+set paste " 붙여넣기 계단현상 없애기
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
 set showmatch " 일치하는 괄호 하이라이팅
 set smartcase " 검색시 대소문자 구별
@@ -25,7 +25,7 @@ set mouse=a
 set incsearch
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-"" vimrc color
+" vimrc color
 set termguicolors
 set background=dark
 

@@ -28,6 +28,9 @@ RUN cp gruvbox/colors/gruvbox.vim .vim/colors/
 RUN git clone https://github.com/dajinstory/env_settings.git
 RUN cp env_settings/vimrc/.vimrc .vimrc
 
+# Get Anaconda
+#RUN wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+
 # Set work-directory
 WORKDIR /workspace
 
