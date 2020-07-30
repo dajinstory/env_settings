@@ -23,6 +23,7 @@ RUN pip install jupyter
 RUN pip install transformers
 RUN pip install numpy
 RUN pip install torchnet
+RUN pip install efficientnet_pytorch
 
 # Set work-directory
 WORKDIR /root
