@@ -24,8 +24,20 @@ RUN pip install transformers
 RUN pip install numpy
 RUN pip install torchnet
 
-# Install Library including perf_client
+# Set work-directory
 WORKDIR /root
+
+# Get colorscheme
+RUN git clone https://github.com/morhetz/gruvbox.git
+RUN mkdir .vim
+RUN mkdir .vim/colors
+RUN cp gruvbox/colors/gruvbox.vim .vim/colors/
+
+# Set .vimrc
+RUN git clone https://github.com/dajinstory/env_settings.git
+RUN cp env_settings/vimrc/.vimrc .vimrc
+
+# Install Library including perf_client
 RUN mkdir /root/tensorrt_clients \
         && cd /root/tensorrt_clients \
         && wget https://github.com/NVIDIA/tensorrt-inference-server/releases/download/v1.7.0/v1.7.0_ubuntu1604.clients.tar.gz \
