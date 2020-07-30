@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  ubuntu:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    shm_size: '8gb'
+    container_name: ubuntu
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    ports:
+      - 11501:11501   # jupyter
+      - 6006:6006    # tensorboard
+    volumes:
+      - ./:/workspace
