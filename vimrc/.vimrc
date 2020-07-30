@@ -25,7 +25,7 @@ set mouse=a
 set incsearch
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-# vimrc color
+"" vimrc color
 set termguicolors
 set background=dark
 

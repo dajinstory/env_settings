@@ -26,16 +26,16 @@ RUN pip install torchnet
 
 # Install Library including perf_client
 WORKDIR /root
-RUN mkdir tensorrt_clients \
+RUN mkdir /root/tensorrt_clients \
         && cd /root/tensorrt_clients \
         && wget https://github.com/NVIDIA/tensorrt-inference-server/releases/download/v1.7.0/v1.7.0_ubuntu1604.clients.tar.gz \
         && tar xzf v1.7.0_ubuntu1604.clients.tar.gz \
         && pip install --upgrade python/tensorrtserver-*.whl
 
-ENV PATH tensorrt_clients/bin:$PATH
-ENV LD_LIBRARY_PATH /root:/root/tensorrt_clients/lib:$LD_LIBRARY_PATH
-
 WORKDIR /workspace
+
+ENV PATH /root/tensorrt_clients/bin:$PATH
+ENV LD_LIBRARY_PATH /workspace:/root/tensorrt_clients/lib:$LD_LIBRARY_PATH
 
 # TensorBoard
 EXPOSE 6006
