@@ -11,6 +11,6 @@ services:
       - 20408:20408
       - 20409:20409
     volumes:
-      - ./trtis_models:/trtis_models
-    command: trtserver --http-port=20407 --grpc-port=20408 --metrics-port=20409 --model-store=/trtis_models
+      - ./trtis_models:/trtis_model
+    command: trtserver --http-port=20407 --grpc-port=20408 --metrics-port=20409 --model-store=/trtis_model
     
