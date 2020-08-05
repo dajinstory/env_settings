@@ -1,3 +1,7 @@
+filetype on
+filetype plugin on
+filetype indent on
+
 set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set autoindent " 자동 들여쓰기
