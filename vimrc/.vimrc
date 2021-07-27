@@ -30,7 +30,7 @@ set incsearch
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
 " vimrc color
-set termguicolors
+" set termguicolors " Problem inside tmux
 set background=dark
 
 " 마지막으로 수정된 곳에 커서를 위치함
