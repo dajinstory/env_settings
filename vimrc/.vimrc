@@ -32,6 +32,7 @@ set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 " vimrc color
 " set termguicolors " Problem inside tmux
 set background=dark
+set t_Co=256
 
 " 마지막으로 수정된 곳에 커서를 위치함
 au BufReadPost *
@@ -43,6 +44,15 @@ au BufReadPost *
 if has("syntax")
  syntax on
 endif
+
 " 컬러 스킴 사용
 colorscheme gruvbox
 
+" shift + Arrow on tmux
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
