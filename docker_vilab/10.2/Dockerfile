@@ -53,9 +53,6 @@ RUN mkdir workspace
 RUN mkdir datasets
 WORKDIR /root/workspace
 
-# Read&Write Auth
-RUN umask 000
-
 # TensorBoard
 EXPOSE 6006
 
