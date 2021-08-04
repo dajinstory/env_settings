@@ -148,7 +148,7 @@ while true; do
 			IMAGE="hyuvilab/$(whoami):${IMAGES[${IDX}]}"
 			echo "[START] Enter the name of container : $(whoami)-{CONTAINER_NAME}"
 			read -p 'container name : ' CONTAINER_NAME
-			$(nvidia-docker run -d -it --volume ~/workspace:/root/workspace --volume ~/datasets:/root/datasets --name "$(whoami)-${CONTAINER_NAME}" ${IMAGE} /bin/bash)
+			$(nvidia-docker run -d -it --ipc=host --volume ~/workspace:/root/workspace --volume ~/datasets:/root/datasets --name "$(whoami)-${CONTAINER_NAME}" ${IMAGE} /bin/bash)
 		else
 		    # invalid response
 		    echo -e "invalid response\n"
