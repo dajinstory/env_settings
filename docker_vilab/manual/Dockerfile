@@ -1,5 +1,5 @@
 # Load root image
-FROM nvcr.io/nvidia/pytorch:19.10-py3
+FROM nvidia/cuda:10.1-devel-ubuntu18.04
 
 # Label
 LABEL maintainer="Dajin Han <dajinstory@gmail.com>"
@@ -15,16 +15,6 @@ RUN apt-get install -y --no-install-recommends \
         language-pack-ko
 ENV LC_ALL=C.UTF-8
 
-# Install python Libraries
-RUN pip install torchvision
-RUN pip install torchnet
-RUN pip install tqdm
-RUN pip install jupyter
-RUN pip install transformers
-RUN pip install numpy
-RUN pip install torchnet
-RUN pip install efficientnet_pytorch
-
 # Set work-directory
 WORKDIR /root
 
@@ -38,17 +28,11 @@ RUN cp gruvbox/colors/gruvbox.vim .vim/colors/
 RUN git clone https://github.com/dajinstory/env_settings.git
 RUN cp env_settings/vimrc/.vimrc .vimrc
 
-# Install Library including perf_client
-RUN mkdir /root/tensorrt_clients \
-        && cd /root/tensorrt_clients \
-        && wget https://github.com/NVIDIA/tensorrt-inference-server/releases/download/v1.7.0/v1.7.0_ubuntu1604.clients.tar.gz \
-        && tar xzf v1.7.0_ubuntu1604.clients.tar.gz \
-        && pip install --upgrade python/tensorrtserver-*.whl
+# Get Anaconda
+#RUN wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 
+# Set work-directory
 WORKDIR /workspace
-
-ENV PATH /root/tensorrt_clients/bin:$PATH
-ENV LD_LIBRARY_PATH /workspace:/root/tensorrt_clients/lib:$LD_LIBRARY_PATH
 
 # TensorBoard
 EXPOSE 6006
