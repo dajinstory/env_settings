@@ -1,5 +1,5 @@
 # Root image
-FROM nvidia/cuda:10.1-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn8-devel-ubuntu18.04
 
 # Maintainer
 LABEL maintainer="Dajin Han <dajinstory@gmail.com>"
